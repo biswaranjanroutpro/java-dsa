@@ -1,0 +1,47 @@
+# Compiled Java files
+*.class
+
+# Java build output
+target/
+out/
+build/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/.nb-gradle/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Environment / secrets
+.env
+.env.*
+
+# OS/editor temporary files
+*.swp
+*.swo
