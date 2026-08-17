@@ -22,7 +22,7 @@ public class MaximumSubarrraysSum {
         System.out.println(ms);
     }
 
-    // Prefix sum 
+    // Prefix sum  tc = O(n2) but sc = n
     public static void prefixSum(int[] arr) {
         int cs = 0;
         int ms = Integer.MIN_VALUE;
@@ -36,7 +36,7 @@ public class MaximumSubarrraysSum {
 
         for(int i = 0; i < arr.length; i++) {
             for(int j = i; j < arr.length; j++) {
-                cs = i == 0 ? prefix[j] : prefix[j] - prefix[j-1];
+                cs = (i == 0) ? prefix[j] : prefix[j] - prefix[j-1];
                 if(ms < cs) {
                     ms = cs;
                 }
@@ -44,9 +44,27 @@ public class MaximumSubarrraysSum {
         }
         System.out.println(ms);
     }
+
+    // kadane algorithm tc = O(n)
+    public static void kadanes(int arr[]) {
+        int ms = Integer.MIN_VALUE;
+        int cs = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            cs += arr[i];
+            if(cs < 0 ) {
+                cs = 0;
+            }
+
+            ms = Math.max(cs, ms);
+        }
+        System.out.println("Our maximum subarray sum is : " + ms);
+    }
     public static void main(String[] args) {
-        int numbers[] = {2, 4, 6, 8, 10};
+        // int numbers[] = {2, 4, 6, 8, 10};
+        int numbers[] = {-2, -3, 4, -1, -2, 1, 5, -3};
         // maxSubarraySum(numbers);
-        prefixSum(numbers);
+        // prefixSum(numbers);
+        kadanes(numbers);
     }
 }
